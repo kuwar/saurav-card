@@ -1,0 +1,1105 @@
+<html>
+
+<head>
+    <title>Lots of LOVE Neetu</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+         :root {
+            --yoda-hue: 120;
+            --yoda-saturation: 50;
+            --yoda-lightness: 50;
+        }
+        
+        body {
+            background: #EFF6F6;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        .text {
+            width: 75%;
+            position: absolute;
+            right: 0;
+            top: 5%;
+            text-align: center;
+            opacity: 0;
+        }
+        
+        .text .char {
+            opacity: 0;
+        }
+        
+        .to,
+        .from {
+            opacity: 0;
+        }
+        
+        h1 {
+            color: #E64F28;
+            font-size: 5rem;
+            margin: 0;
+        }
+        
+        p {
+            font-family: 'Neucha', cursive;
+            font-size: 1rem;
+            margin: 0.5em 0;
+        }
+        
+        .scene-wrap {
+            height: 90vmin;
+            width: 100vmin;
+            max-height: 600px;
+            max-width: 730px;
+            overflow: hidden;
+            position: relative;
+            background: #D0DDDC;
+        }
+        
+        .swing-wrap {
+            position: absolute;
+            left: 10%;
+            height: 100%;
+            width: 60%;
+            transform-origin: 10% 0px;
+            opacity: 0;
+        }
+        
+        .string {
+            width: 1px;
+            height: 50%;
+            background: black;
+            position: absolute;
+            left: 10%;
+            top: -20%;
+            transform: rotate(-20deg);
+        }
+        
+        .baby-svg {
+            height: 130%;
+            position: absolute;
+            width: 130%;
+        }
+        
+        .candycane-svg {
+            height: 100%;
+            width: 100%;
+            max-height: 600px;
+            transform: scaleY(-1) rotate(18deg);
+            position: absolute;
+        }
+        
+        .baby__eye {
+            overflow: hidden;
+            -webkit-clip-path: circle(50% at 50%);
+            clip-path: circle(50% at 50%);
+        }
+        
+        .baby__shadow,
+        .baby__saber-shadow {
+            fill: hsl(var(--sand-hue), 25%, 15%);
+        }
+        
+        .baby__hand,
+        .baby__finger {
+            fill: hsl(var(--yoda-hue), 50%, calc(var(--yoda-lightness) * 1%));
+        }
+        
+        .baby__robe {
+            fill: #f00;
+        }
+        
+        .baby__robe-sleeve {
+            fill: #f00;
+        }
+        
+        .baby__robe-cuff {
+            fill: #fff;
+        }
+        
+        .baby__robe-fold-shadow {
+            stroke: #d60000;
+        }
+        
+        .baby__robe-fold {
+            stroke: #bd0000;
+        }
+        
+        .baby__head {
+            fill: hsl(var(--yoda-hue), 50%, 60%);
+        }
+        
+        .baby__face {
+            fill: none;
+            stroke: hsl(var(--yoda-hue), 50%, 35%);
+        }
+        
+        .baby__eyelid {
+            fill: hsl(var(--yoda-hue), 50%, 30%);
+        }
+        
+        .baby__ear--inner {
+            fill: #ffd6d6;
+        }
+        
+        .baby__ear--outer {
+            fill: hsl(var(--yoda-hue), 50%, 50%);
+        }
+        
+        .baby__forehead {
+            stroke: hsl(var(--yoda-hue), 50%, 35%);
+        }
+        
+        .baby__hair {
+            stroke: #111;
+            stroke-opacity: 0.25;
+        }
+        
+        .baby__collar--one {
+            fill: #fff;
+        }
+        
+        .baby__collar--two {
+            fill: #fff;
+        }
+        
+        .baby__collar--three {
+            fill: #fff5f5;
+        }
+        
+        .baby__collar--four {
+            fill: #fff;
+        }
+        
+        .baby__collar--five {
+            fill: #fff5f5;
+        }
+        
+        .baby__collar--six {
+            fill: #ffe5e5;
+        }
+        
+        .baby__hat--bottom {
+            fill: #fff;
+        }
+        
+        .baby__hat {
+            fill: #f00;
+        }
+        
+        .baby__hat--flop {
+            stroke: #bd0000;
+            fill: none;
+            stroke-width: 0.5;
+        }
+        
+        .baby__hat--pompom {
+            fill: #fff;
+        }
+        
+        .audio-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border: none;
+            border-radius: 15px;
+        }
+        
+        .replay {
+            position: absolute;
+            bottom: 10px;
+            right: 50px;
+            height: 30px;
+            line-height: 28px;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Fredoka One', cursive;
+            background: #DD0705;
+            border: none;
+            border-radius: 15px;
+            text-transform: uppercase;
+        }
+        
+        .audio-button svg {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            fill: #DD0705;
+        }
+        
+        .audio-button .play-icon {
+            display: none;
+        }
+        
+        .audio-button.paused .play-icon {
+            display: block;
+        }
+        
+        .audio-button.paused .pause-icon {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scene-wrap">
+        <div class="text">
+            <p class="to">To: Neetu</p>
+            <h1 data-splitting class="merry-xmas">Merry Christmas</h1>
+            <p class="from">Love from: Saurav</p>
+        </div>
+        <button class="replay">Replay</button>
+        <button class="audio-button paused">
+              <svg xmlns="http://www.w3.org/2000/svg" class="play-icon" height="30" width="30" viewBox="0 0 1200 1200">
+            <path
+               d="M 600,1200 C 268.65,1200 0,931.35 0,600 0,268.65 268.65,0 600,0 c 331.35,0 600,268.65 600,600 0,331.35 -268.65,600 -600,600 z M 450,300.45 450,899.55 900,600 450,300.45 z"/>
+          </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="pause-icon" height="30" width="30" viewBox="0 0 1200 1200">
+            <path
+               d="M 600,0 C 268.62914,0 0,268.62914 0,600 c 0,331.37086 268.62914,600 600,600 331.37086,0 600,-268.62914 600,-600 C 1200,268.62914 931.37086,0 600,0 z m -269.16515,289.38 181.71397,0 0,621.24 -181.71397,0 0,-621.24 z m 356.61633,0 181.71399,0 0,621.24 -181.71399,0 0,-621.24 z" />
+          </svg>
+            </button>
+        <audio loop id="audio" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/LastChristmas-short.mp3">
+              Your browser does not support the
+              <code>audio</code> element.
+            </audio>
+        <div class="swing-wrap">
+            <div class="string"></div>
+            <svg class="candycane-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+          <path style="fill:#EFEFEF;" d="M381.53,95.749c-4.957-18.071-13.717-34.594-25.388-48.625C335.016,21.67,304.396,4.374,269.75,0.728
+              c-4.931-0.525-9.953-0.774-15.028-0.721c-11.881,0.118-23.368,1.836-34.253,4.983c-30.122,8.655-55.72,28.063-72.662,53.7
+              c-9.73,14.727-16.602,31.499-19.841,49.491c-1.39,7.671-2.111,15.566-2.111,23.618v71.797v69.331v93.277v69.331v38.567
+              c0,20.929,16.969,37.898,37.898,37.898c10.635,0,20.26-4.38,27.119-11.448c6.675-6.819,10.792-16.156,10.792-26.45V442v-93.277
+              v-69.331v-97.513v-51.733c0-5.613,0.852-11.042,2.452-16.143c4.996-16.051,17.257-28.929,32.915-34.777
+              c6.295-2.36,13.14-3.58,20.274-3.41c11.986,0.288,22.949,4.524,31.761,11.448c8.668,6.806,15.251,16.222,18.661,26.988v0.013
+              c1.705,5.35,2.623,11.042,2.623,16.903v10.412c0,10.465,4.249,19.933,11.094,26.804c1.482,1.469,3.082,2.819,4.786,4.039
+              c6.203,4.432,13.809,7.055,22.018,7.055c20.929,0,37.898-16.969,37.898-37.898v-11.435
+              C386.146,118.239,384.546,106.712,381.53,95.749z"/>
+          <g>
+              <path style="fill:#F95428;" d="M381.53,95.749l-55.3,76.675c-1.705-1.22-3.305-2.57-4.786-4.039
+                  c-6.845-6.872-11.094-16.34-11.094-26.804v-10.412c0-5.862-0.918-11.553-2.623-16.903v-0.013l48.415-67.128
+                  C367.813,61.155,376.573,77.679,381.53,95.749z"/>
+              <path style="fill:#F95428;" d="M269.75,0.728l19.316,86.536c-8.812-6.924-19.775-11.16-31.761-11.448
+                  c-7.134-0.17-13.979,1.049-20.274,3.41L220.469,4.99c10.884-3.147,22.372-4.865,34.253-4.983
+                  C259.797-0.046,264.819,0.204,269.75,0.728z"/>
+              <path style="fill:#F95428;" d="M201.651,112.534l2.465,1.469c-1.6,5.101-2.452,10.53-2.452,16.143v51.733h-0.013l-73.685-73.698
+                  c3.239-17.992,10.111-34.764,19.841-49.491L201.651,112.534z"/>
+              <polygon style="fill:#F95428;" points="201.664,279.392 201.664,348.723 201.651,348.723 125.854,272.927 125.854,203.595 
+                  201.651,279.392 	"/>
+              <path style="fill:#F95428;" d="M201.664,442v32.102c0,10.294-4.118,19.631-10.792,26.45l-65.017-65.017v-69.331L201.651,442
+                  H201.664z"/>
+          </g>
+          </svg>
+
+            <svg class="baby-svg" xmlns="http://www.w3.org/2000/svg" viewbox="-30 -20 188.75 178.75">
+            <g class="baby__wrap">
+              <g transform="translate(-25 -134)">
+                <g class="baby">
+                  <g transform="scale(-1 1) rotate(5.288 -24.745 -1423.853)">
+                    <g class="baby__hand" transform="translate(0 -1.058)">
+                      <rect class="baby__finger" ry=".675" y="214.483" x="59.607" height="4.089" width="1.35"></rect>
+                      <rect class="baby__finger" width="1.35" height="4.089" x="61.337" y="214.483" ry=".675"></rect>
+                      <rect class="baby__finger" ry=".675" y="214.483" x="63.066" height="4.089" width="1.35"></rect>
+                      <rect class="baby__finger" ry="1.167" y="214.483" x="59.078" height="2.335" width="5.868"></rect>
+                    </g>
+                    <rect class="baby__robe-sleeve" width="6.603" height="16.644" x="58.885" y="199.491" ry="3.075"></rect>
+                    <rect class="baby__robe-cuff" width="9.407" height="3.688" x="57.483" y="212.447" ry=".905"></rect>
+                  </g>
+                  <g class="baby__arm baby__arm--left">
+                    <g transform="rotate(5.288 51.972 237.488)">
+                      <g class="baby__hand" transform="translate(0 -1.058)">
+                        <rect class="baby__finger" width="1.35" height="4.089" x="59.607" y="214.483" ry=".675"></rect>
+                        <rect class="baby__finger" ry=".675" y="214.483" x="61.337" height="4.089" width="1.35"></rect>
+                        <rect class="baby__finger" width="1.35" height="4.089" x="63.066" y="214.483" ry=".675"></rect>
+                        <rect class="baby__palm" width="5.868" height="2.335" x="59.078" y="214.483" ry="1.167"></rect>
+                      </g>
+                      <g class="baby__sleeve">
+                        <rect class="baby__robe-sleeve" ry="3.075" y="199.491" x="58.885" height="16.644" width="6.603"></rect>
+                        <rect class="baby__robe-cuff" ry=".905" y="212.447" x="57.483" height="3.688" width="9.407"></rect>
+                      </g>
+                    </g>
+                  </g>
+                  <path class="baby__robe" d="M64.992 191.416c-1.318 4.813.083 37.02-3.596 37.02-.702 0-1.266.565-1.266 1.266 0 .702.564 1.267 1.266 1.267H92.06c.701 0 1.266-.565 1.266-1.267 0-.701-.565-1.266-1.267-1.266-2.83.265-2.917-26.882-3.595-37.02z"></path>
+                  <g class="baby__ear baby__ear--left">
+                    <path class="baby__ear--inner" d="M39.016 184.686a.84.84 0 00-.901.777c-.029.46.358.714.797.882l1.645.63c3.245 1.241 4.33 7.61 7.96 9.162 4.507 1.93 23.122.278 23.122.278s-.13-.007 0-2.117c.104-1.67-2.18-6.907-3.017-6.132a.836.836 0 00.838-.775.839.839 0 00-.798-.882z"></path>
+                    <path class="baby__ear--outer" d="M39.016 184.686a.84.84 0 00-.901.777c-.029.46.358.714.797.882l1.645.63c3.245 1.241 12.454-.92 17.927 1.405 6.228 2.645 2.182 13.586 8.153 6.55 1.79.29 1.758 1.672 1.89-.437.104-1.67 1.27-4.858.095-6.327a.836.836 0 00.838-.775.839.839 0 00-.798-.882z"></path>
+                  </g>
+                  <g class="baby__ear baby__ear--right">
+                    <path class="baby__ear--inner" d="M114.133 184.686a.84.84 0 01.9.777c.029.46-.358.714-.797.882l-1.645.63c-3.245 1.241-4.33 7.61-7.96 9.162-4.507 1.93-23.122.278-23.122.278s.13-.007 0-2.117c-.104-1.67 2.18-6.907 3.017-6.132a.836.836 0 01-.838-.775.839.839 0 01.798-.882z"></path>
+                    <path class="baby__ear--outer" d="M114.133 184.686a.84.84 0 01.9.777c.029.46-.358.714-.797.882l-1.645.63c-3.245 1.241-12.454-.92-17.927 1.405-6.228 2.645-2.182 13.586-8.153 6.55-1.79.29-1.758 1.672-1.89-.437-.103-1.67-1.27-4.858-.095-6.327a.836.836 0 01-.838-.775.839.839 0 01.798-.882z"></path>
+                  </g>
+                  <path class="baby__head" d="M89.69 192.575c0 2.573.96 5.673-1.646 7.359-2.608 1.686-7.496 1.7-11.474 1.7-6.812 0-8.738-.27-11.345-1.957-2.607-1.686-1.647-4.4-1.647-6.974 0-2.573.069-5.159 2.676-6.845s6.466-2.215 10.444-2.215c3.979 0 8.095.786 10.702 2.472 2.608 1.686 2.29 3.887 2.29 6.46z"></path>
+                  <path class="baby__face" d="M74.598 193.834a1.994 1.735 0 011.96-1.413 1.994 1.735 0 011.959 1.413M72.94 196 c1.5,1.4 6.5,1.4 8,0" stroke-width="1" stroke-linecap="round"></path>
+                  <g class="baby__eye baby__eye--left" transform="matrix(.99997 0 0 1.00462 .446 -2.499)">
+                    <ellipse id="ellipse1246" style="fill:#000000;stroke:#000000;stroke-width:1.26967835;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" cx="68.251839" cy="193.02319" rx="3.0693276" ry="3.0693274"></ellipse>
+                    <circle id="circle1248" style="fill:#ffffff;stroke:none;stroke-width:0.78371131;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" cx="66.1614" cy="192.97395" r="0.40189433"></circle>
+                    <circle id="circle1250" r="0.78565741" cy="191.43892" cx="66.67308" style="fill:#ffffff;stroke:none;stroke-width:1.53206599;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"></circle>
+                    <g class="baby__eyelids baby__eyelids--left">
+                      <g class="baby__eyelid--bottom baby__eyelid--left-top">
+                        <path class="baby__eyelid" style="stroke:none;stroke-width:2.46095419;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" d="m 243.95898,207.01758 a 14,14 0 0 0 14,14 14,14 0 0 0 14,-14 z" transform="matrix(0.26458333,0,0,0.26458333,0,138.24998)" inkscape:connector-curvature="0"></path>
+                      </g>
+                      <g class="baby__eyelid--top baby__eyelid--left-bottom">
+                        <path class="baby__eyelid" d="m 71.955809,193.02338 a 3.7041666,3.7041666 0 0 0 -3.70417,-3.70417 3.7041666,3.7041666 0 0 0 -3.70416,3.70417 z" style="stroke:none;stroke-width:0.65112746;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" inkscape:connector-curvature="0"></path>
+                      </g>
+                    </g>
+                  </g>
+                  <path class="baby__collar baby__collar--one" d="M76.59 200.127l-3.016.704a1.39 1.39 0 00-.863.617 1.38 1.38 0 00-.172 1.046l.879 3.767 3.172.74 3.172-.74.878-3.767a1.382 1.382 0 00-1.034-1.663z"></path>
+                  <path class="baby__collar baby__collar--two" d="M62.901 197.047a1.382 1.382 0 00-1.113 1.052l-.89 3.821a1.382 1.382 0 001.034 1.663l11.486 2.678-.879-3.767a1.389 1.389 0 01.172-1.046 1.382 1.382 0 01.863-.617l3.016-.704-13.138-3.063a1.388 1.388 0 00-.55-.017z"></path>
+                  <rect class="baby__collar baby__collar--three" transform="scale(-1 1) rotate(13.124)" ry="1.385" y="212.291" x="-44.024" height="6.694" width="19.357"></rect>
+                  <g class="baby__eye baby__eye--right" transform="matrix(.99997 0 0 1.00462 16.32 -2.499)">
+                    <ellipse id="ellipse1246" style="fill:#000000;stroke:#000000;stroke-width:1.26967835;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" cx="68.251839" cy="193.02319" rx="3.0693276" ry="3.0693274"></ellipse>
+                    <circle id="circle1248" style="fill:#ffffff;stroke:none;stroke-width:0.78371131;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" cx="66.1614" cy="192.97395" r="0.40189433"></circle>
+                    <circle id="circle1250" r="0.78565741" cy="191.43892" cx="66.67308" style="fill:#ffffff;stroke:none;stroke-width:1.53206599;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"></circle>
+                    <g class="baby__eyelids baby__eyelids--right">
+                      <g class="baby__eyelid--bottom baby__eyelid--right-top">
+                        <path class="baby__eyelid" style="stroke:none;stroke-width:2.46095419;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" d="m 243.95898,207.01758 a 14,14 0 0 0 14,14 14,14 0 0 0 14,-14 z" transform="matrix(0.26458333,0,0,0.26458333,0,138.24998)" inkscape:connector-curvature="0"></path>
+                      </g>
+                      <g class="baby__eyelid--top baby__eyelid--right-bottom">
+                        <path class="baby__eyelid" d="m 71.955809,193.02338 a 3.7041666,3.7041666 0 0 0 -3.70417,-3.70417 3.7041666,3.7041666 0 0 0 -3.70416,3.70417 z" style="stroke:none;stroke-width:0.65112746;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;" inkscape:connector-curvature="0"></path>
+                      </g>
+                    </g>
+                  </g>
+                  <g fill="none" stroke-width=".5" stroke-linecap="round">
+                    <path class="baby__robe-fold-shadow" d="M67.886 210.21s-1.155 2.805.317 4.638c1.8 2.243 4.055 4.848 4.115 6.352.108 2.745-2.262 5.743-2.262 5.743" filter="url(#a)"></path>
+                    <path class="baby__robe-fold" d="M67.886 210.21s-1.155 2.805.317 4.638c1.8 2.243 4.055 4.848 4.115 6.352.108 2.745-2.262 5.743-2.262 5.743"></path>
+                  </g>
+                  <path class="baby__robe-fold-shadow" d="M67.614 219.707s.591 1.703-.723 3.89c-.21.347-1.674 2.487-1.674 2.487" fill="none" stroke-width=".5" filter="url(#b)"></path>
+                  <path class="baby__robe-fold" d="M67.614 219.707s.591 1.703-.723 3.89c-.21.347-1.674 2.487-1.674 2.487" fill="none" stroke-width=".5" stroke-linecap="round"></path>
+                  <path class="baby__robe-fold-shadow" d="M84.393 214.868s-.235 5.304.453 7.824c.468 1.717 2.442 4.749 2.442 4.749" fill="none" stroke-width=".5" stroke-linecap="round" filter="url(#c)"></path>
+                  <path class="baby__robe-fold" d="M84.393 214.868s-.235 5.304.453 7.824c.468 1.717 2.442 4.749 2.442 4.749" fill="none" stroke-width=".5" stroke-linecap="round"></path>
+                  <path class="baby__forehead baby__forehead--vertical" d="M76.67 190.618s.022-.826-.028-1.234c-.04-.332-.217-.98-.217-.98" fill="none" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path class="baby__hair" d="M74.082 184.43l-.362-.95M76.524 184.475l.317-.95M79.011 184.43l-.361-.995M77.7 183.842l.136-.904M75.438 183.933l-.452-.86" fill="none" stroke-width=".5"></path>
+                  <path class="baby__forehead baby__forehead--horizontal" d="M73.63 186.692s1.857-.446 2.803-.453c.93-.006 2.76.407 2.76.407" fill="none" stroke-width=".75" stroke-linecap="round" stroke-opacity=".733"></path>
+                  <path class="baby__hat" d="M64,183 l6,-13 l13,0 l6,14 z"></path>
+                  <path class="baby__hat--flop" d="M64,183 m6,-12.5 l8.5,5 l4.5,-5"></path>
+                  <circle class="baby__hat--pompom" cx="78.5" cy="176.5" r="2.5"></circle>
+                  <rect class="baby__hat--bottom" y="181" x="63.5" width="26" height="5" rx="2"></rect>
+                  <path class="baby__collar baby__collar--four" d="M90.006 197.028a1.401 1.401 0 00-.278.036l-2.143.5-.05 6.885 3.713-.866a1.382 1.382 0 001.034-1.663l-.891-3.821a1.382 1.382 0 00-1.385-1.07z"></path>
+                  <path class="baby__collar baby__collar--five" d="M63.173 197.028a1.382 1.382 0 00-1.384 1.07l-.891 3.822a1.382 1.382 0 001.034 1.663l4.481 1.045a8.77 8.77 0 01-.042-.742l-.058-6.154-2.861-.668a1.404 1.404 0 00-.28-.036z"></path>
+                  <path class="baby__collar baby__collar--six" d="M63.173 197.028a1.382 1.382 0 00-1.384 1.07l-.891 3.822a1.382 1.382 0 001.034 1.663l2.71.632.197-6.463c.004-.124.014-.242.026-.358l-1.413-.33a1.404 1.404 0 00-.28-.036z"></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+
+        </div>
+
+    </div>
+</body>
+
+<!-- Load Babel -->
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.0/pixi.min.js"></script>
+
+
+<script>
+    const {
+        gsap,
+        Linear
+    } = window;
+    const {
+        timeline,
+        to,
+        set
+    } = gsap;
+    const text = document.querySelector(".text");
+    const merryText = document.querySelector(".merry-xmas");
+    const toText = document.querySelector(".to");
+    const fromText = document.querySelector(".from");
+    const swingWrap = document.querySelector(".swing-wrap");
+    const sceneWrap = document.querySelector(".scene-wrap");
+    const eyelidsLeft = document.querySelector(".baby__eyelids--left");
+    const eyelidsRight = document.querySelector(".baby__eyelids--right");
+    const eyelidsTop = document.querySelectorAll(".baby__eyelid--top");
+    const eyelidsBottom = document.querySelectorAll(".baby__eyelid--bottom");
+    const baby = document.querySelector(".baby");
+    const ears = document.querySelectorAll(".baby__ear");
+    const texture = PIXI.Texture.from(
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/53148/snowflake.png"
+    );
+    const split = Splitting()[0];
+    const audio = document.getElementById("audio");
+    const audioButton = document.querySelector(".audio-button");
+    const playAudio = document.querySelector(".play-icon");
+    const pauseAudio = document.querySelector(".pause-icon");
+    const replayButton = document.querySelector(".replay");
+
+    const SWING_SPEED = 2.6;
+    const BLINK_SPEED = 0.1;
+    const BABY_ROCK = 8;
+    const EYE_OPEN = 0.4;
+    const EYE_CLOSED = 0.9;
+    const EAR_ROTATION_DEFAULT = 12;
+    let fontSize = 30;
+    let flakes = [];
+    let width = sceneWrap.offsetWidth,
+        height = sceneWrap.offsetHeight;
+    let pixiApp = new PIXI.Application({
+        width: width,
+        height: height,
+        transparent: true
+    });
+    sceneWrap.appendChild(pixiApp.view);
+    resize();
+
+    set(baby, {
+        transformOrigin: "50% 100%",
+        rotate: -BABY_ROCK
+    });
+    set(eyelidsTop, {
+        transformOrigin: "50%, 0%",
+        scaleY: EYE_CLOSED
+    });
+    set(eyelidsBottom, {
+        transformOrigin: "50%, 100%",
+        scaleY: EYE_CLOSED
+    });
+    set(ears[0], {
+        transformOrigin: "100% 0",
+        rotate: -EAR_ROTATION_DEFAULT
+    });
+    set(ears[1], {
+        transformOrigin: "0 0",
+        rotate: EAR_ROTATION_DEFAULT
+    });
+    set(eyelidsLeft, {
+        transformOrigin: "50% 50%",
+        rotate: -5
+    });
+    set(eyelidsRight, {
+        transformOrigin: "50% 50%",
+        rotate: 5
+    });
+    set(swingWrap, {
+        y: "-120%",
+        rotate: 20,
+        opacity: 1
+    });
+    set(text, {
+        opacity: 1
+    });
+    split.chars.map(c => {
+        set(c, {
+            opacity: 0,
+            y: FONT_SIZE * 0.7,
+            x: -FONT_SIZE * 0.25 + Math.random() * FONT_SIZE * 0.5,
+            rotate: -30 + Math.random() * 60
+        });
+    });
+    set(toText, {
+        opacity: 0,
+        y: FONT_SIZE * -0.1
+    });
+    set(fromText, {
+        opacity: 0,
+        y: FONT_SIZE * 0.1
+    });
+
+    /*
+     * Animated Baby drop & Swing 
+     */
+
+    const swingDrop = () =>
+        new timeline({
+            defaults: {
+                ease: "power2.inOut"
+            }
+        })
+        .to(swingWrap, {
+            y: "5%",
+            rotate: 0,
+            ease: "back.out",
+            duration: 1
+        })
+        .to(swingWrap, {
+            y: "-5%",
+            rotate: 50,
+            duration: 1.8,
+            ease: "sine.out"
+        })
+        .to(swingWrap, {
+            y: "2%",
+            rotate: -12,
+            duration: 2
+        })
+        .to(swingWrap, {
+            y: 0,
+            rotate: 42,
+            duration: 2.2
+        })
+        .to(swingWrap, {
+            rotate: -10,
+            duration: 2.4
+        });
+
+    const eyesDrop = () =>
+        new timeline()
+        .to(eyelidsTop, {
+            scaleY: EYE_OPEN,
+            ease: "power2.in",
+            duration: 0.5
+        })
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_OPEN,
+                ease: "power2.in",
+                duration: 0.5
+            },
+            "<"
+        )
+        .to(
+            eyelidsTop, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 0.5
+            },
+            ">"
+        )
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 0.5
+            },
+            "<"
+        )
+        .to(eyelidsTop, {
+            scaleY: EYE_OPEN,
+            ease: "power3.in",
+            duration: 0.9
+        })
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_OPEN,
+                ease: "power2.in",
+                duration: 0.9
+            },
+            "<"
+        )
+        .to(
+            eyelidsTop, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 0.9
+            },
+            ">"
+        )
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 0.9
+            },
+            "<"
+        )
+        .to(eyelidsTop, {
+            scaleY: EYE_OPEN,
+            ease: "power3.in",
+            duration: 1
+        })
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_OPEN,
+                ease: "power2.in",
+                duration: 1
+            },
+            "<"
+        )
+        .to(
+            eyelidsTop, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 1
+            },
+            ">"
+        )
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 1
+            },
+            "<"
+        )
+        .to(eyelidsTop, {
+            scaleY: EYE_OPEN,
+            ease: "power3.in",
+            duration: 1.1
+        })
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_OPEN,
+                ease: "power2.in",
+                duration: 1.1
+            },
+            "<"
+        )
+        .to(
+            eyelidsTop, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 1.1
+            },
+            ">"
+        )
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 1.1
+            },
+            "<"
+        )
+        .to(eyelidsTop, {
+            scaleY: EYE_OPEN,
+            ease: "power3.in",
+            duration: 1.2
+        })
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_OPEN,
+                ease: "power2.in",
+                duration: 1.2
+            },
+            "<"
+        )
+        .to(
+            eyelidsTop, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 1.2
+            },
+            ">"
+        )
+        .to(
+            eyelidsBottom, {
+                scaleY: EYE_CLOSED,
+                ease: "power2.out",
+                duration: 1.2
+            },
+            "<"
+        );
+
+    const earsDrop = () =>
+        new timeline()
+        .to(ears[0], {
+            rotate: EAR_ROTATION_DEFAULT * 1.2,
+            ease: "power3.in",
+            duration: 0.5
+        })
+        .to(
+            ears[1], {
+                rotate: -EAR_ROTATION_DEFAULT * 1.2,
+                ease: "power3.in",
+                duration: 0.5
+            },
+            "<"
+        )
+        .to(ears[0], {
+            rotate: 0,
+            ease: "power3.out",
+            duration: 0.5
+        }, ">")
+        .to(ears[1], {
+            rotate: 0,
+            ease: "power3.out",
+            duration: 0.5
+        }, "<")
+        .to(ears[0], {
+            rotate: EAR_ROTATION_DEFAULT,
+            ease: "power3.in",
+            duration: 0.9
+        })
+        .to(
+            ears[1], {
+                rotate: -EAR_ROTATION_DEFAULT,
+                ease: "power3.in",
+                duration: 0.9
+            },
+            "<"
+        )
+        .to(ears[0], {
+            rotate: 0,
+            ease: "power3.out",
+            duration: 0.9
+        }, ">")
+        .to(ears[1], {
+            rotate: 0,
+            ease: "power3.out",
+            duration: 0.9
+        }, "<")
+        .to(
+            ears[0], {
+                rotate: -EAR_ROTATION_DEFAULT * 2,
+                ease: "power3.in",
+                duration: 1
+            },
+            ">"
+        )
+        .to(
+            ears[1], {
+                rotate: EAR_ROTATION_DEFAULT * 2,
+                ease: "power3.in",
+                duration: 1
+            },
+            "<"
+        )
+        .to(
+            ears[0], {
+                rotate: -EAR_ROTATION_DEFAULT,
+                ease: "power3.out",
+                duration: 1
+            },
+            ">"
+        )
+        .to(
+            ears[1], {
+                rotate: EAR_ROTATION_DEFAULT,
+                ease: "power3.out",
+                duration: 1
+            },
+            "<"
+        )
+        .to(ears[0], {
+            rotate: EAR_ROTATION_DEFAULT,
+            ease: "power3.in",
+            duration: 1.1
+        })
+        .to(
+            ears[1], {
+                rotate: -EAR_ROTATION_DEFAULT,
+                ease: "power3.in",
+                duration: 1.1
+            },
+            "<"
+        )
+        .to(ears[0], {
+            rotate: 0,
+            ease: "power3.out",
+            duration: 1.1
+        }, ">")
+        .to(ears[1], {
+            rotate: 0,
+            ease: "power3.out",
+            duration: 1.1
+        }, "<")
+        .to(
+            ears[0], {
+                rotate: -EAR_ROTATION_DEFAULT * 2,
+                ease: "power3.in",
+                duration: 1.2
+            },
+            ">"
+        )
+        .to(
+            ears[1], {
+                rotate: EAR_ROTATION_DEFAULT * 2,
+                ease: "power3.in",
+                duration: 1.2
+            },
+            "<"
+        )
+        .to(
+            ears[0], {
+                rotate: -EAR_ROTATION_DEFAULT,
+                ease: "power3.out",
+                duration: 1.2
+            },
+            ">"
+        )
+        .to(
+            ears[1], {
+                rotate: EAR_ROTATION_DEFAULT,
+                ease: "power3.out",
+                duration: 1.2
+            },
+            "<"
+        );
+
+    const babyDrop = () =>
+        new timeline()
+        .to(baby, {
+            rotate: -BABY_ROCK * 1.5,
+            ease: "back.out",
+            duration: 1
+        })
+        .to(baby, {
+            rotate: BABY_ROCK,
+            ease: "power3.inOut",
+            duration: 1.8
+        })
+        .to(baby, {
+            rotate: -BABY_ROCK,
+            ease: "power3.inOut",
+            duration: 2
+        })
+        .to(baby, {
+            rotate: BABY_ROCK,
+            ease: "power3.inOut",
+            duration: 2.2
+        })
+        .to(baby, {
+            rotate: -BABY_ROCK,
+            ease: "power3.inOut",
+            duration: 2.4
+        });
+
+    const dropTL = () =>
+        new timeline()
+        .add(swingDrop())
+        .add(eyesDrop(), 0)
+        .add(earsDrop(), 0)
+        .add(babyDrop(), 0)
+        .add(animateText(), 0.1);
+
+    // baby rock
+    const babyRock = () =>
+        new timeline({
+            repeat: -1,
+            defaults: {
+                duration: SWING_SPEED
+            }
+        })
+        .to(baby, {
+            rotate: BABY_ROCK,
+            ease: "power3.inOut"
+        })
+        .to(baby, {
+            rotate: -BABY_ROCK,
+            ease: "power3.inOut"
+        });
+    // eyes
+    const eyesRock = () =>
+        new timeline({
+            repeat: -1,
+            defaults: {
+                duration: SWING_SPEED / 2
+            }
+        })
+        .to(eyelidsTop, {
+            scaleY: EYE_OPEN,
+            ease: "power3.in"
+        })
+        .to(eyelidsBottom, {
+            scaleY: EYE_OPEN,
+            ease: "power3.in"
+        }, "<")
+        .to(eyelidsTop, {
+            scaleY: EYE_CLOSED,
+            ease: "power3.out"
+        }, ">")
+        .to(eyelidsBottom, {
+            scaleY: EYE_CLOSED,
+            ease: "power3.out"
+        }, "<");
+
+    // ears
+    const earsRock = () =>
+        new timeline({
+            defaults: {
+                duration: SWING_SPEED / 2
+            },
+            repeat: -1
+        })
+        .to(ears[0], {
+            rotate: EAR_ROTATION_DEFAULT,
+            ease: "power3.in"
+        })
+        .to(ears[1], {
+            rotate: -EAR_ROTATION_DEFAULT,
+            ease: "power3.in"
+        }, "<")
+        .to(ears[0], {
+            rotate: 0,
+            ease: "power3.out"
+        }, ">")
+        .to(ears[1], {
+            rotate: 0,
+            ease: "power3.out"
+        }, "<")
+        .to(ears[0], {
+            rotate: -EAR_ROTATION_DEFAULT * 2,
+            ease: "power3.in"
+        }, ">")
+        .to(ears[1], {
+            rotate: EAR_ROTATION_DEFAULT * 2,
+            ease: "power3.in"
+        }, "<")
+        .to(ears[0], {
+            rotate: -EAR_ROTATION_DEFAULT,
+            ease: "power3.out"
+        }, ">")
+        .to(ears[1], {
+            rotate: EAR_ROTATION_DEFAULT,
+            ease: "power3.out"
+        }, "<");
+
+    const swingTL = () =>
+        new timeline({
+            defaults: {
+                ease: "power2.inOut"
+            },
+            repeat: -1
+        })
+        .to(swingWrap, {
+            duration: SWING_SPEED,
+            rotate: 40
+        })
+        .to(swingWrap, {
+            duration: SWING_SPEED,
+            rotate: -10
+        });
+
+    const repeatTL = () =>
+        new timeline()
+        .add(swingTL())
+        .add(babyRock(), 0)
+        .add(earsRock(), 0)
+        .add(eyesRock(), 0);
+
+    /*
+     * Animate Text
+     */
+
+    const animateText = () => {
+        const textTL = new timeline({
+            defaults: {
+                duration: 0.4,
+                ease: "back.out"
+            }
+        });
+        split.chars.map((c, i) => {
+            textTL.to(c, {
+                y: -FONT_SIZE * 0.1,
+                opacity: 1,
+                x: 0,
+                rotate: 0
+            }, 0.1 * i);
+        });
+        textTL.to(toText, {
+            y: 0,
+            opacity: 1,
+            ease: "power2.easeOut"
+        }, 0.6);
+        textTL.to(fromText, {
+            y: 0,
+            opacity: 1,
+            ease: "power2.easeOut"
+        }, 0.9);
+        return textTL;
+    };
+
+    /*
+     * Snowfall
+     */
+    function createFlakes() {
+        flakes = [];
+        for (var i = 0; i < width; i++) {
+            var snowflake = new PIXI.Sprite(texture);
+            snowflake.anchor.x = 0.5;
+            snowflake.anchor.y = 0.5;
+            snowflake.position.x = -100;
+            snowflake.position.y = -100;
+            snowflake.scale.x = 0.4;
+            snowflake.scale.y = 0.4;
+            snowflake.alpha = 0.8;
+            snowflake.speed = 0.5 + Math.random() * 0.5;
+            snowflake.slideAmount = Math.random() * 10;
+            snowflake.counter = Math.random() * 360;
+            pixiApp.stage.addChild(snowflake);
+            flakes.push(snowflake);
+        }
+    }
+
+    function animateFlake() {
+        for (var i = 0; i < flakes.length; i++) {
+            if (!flakes[i].inMotion) {
+                flakes[i].xPosition = Math.random() * width;
+                flakes[i].position.x = flakes[i].xPosition;
+                flakes[i].position.y = -20;
+                var scale = 0.2 + Math.random() * 0.15;
+                flakes[i].scale.x = scale;
+                flakes[i].scale.y = scale;
+                flakes[i].stuck = false;
+                flakes[i].alpha = 0.5 + Math.random() * 0.3;
+                flakes[i].inMotion = true;
+                return;
+            }
+        }
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        // render the stage
+        pixiApp.renderer.render(pixiApp.stage);
+        for (var i = 0; i < flakes.length; i++) {
+            if (flakes[i].inMotion) {
+                if (!flakes[i].stuck) {
+                    flakes[i].position.y += flakes[i].speed;
+                    flakes[i].counter += Math.PI * 2 / 100;
+                    flakes[i].position.x =
+                        flakes[i].xPosition +
+                        flakes[i].slideAmount * Math.sin(flakes[i].counter);
+                } else {
+                    flakes[i].alpha -= 0.003;
+                    if (flakes[i].alpha <= 0) {
+                        flakes[i].inMotion = false;
+                    }
+                }
+                if (flakes[i].position.y > height) {
+                    flakes[i].stuck = true;
+                }
+            }
+        }
+    }
+
+    /*
+     * Resize
+     */
+    function resize() {
+        const swingHeight = swingWrap.offsetHeight;
+        FONT_SIZE = swingHeight * 0.14;
+        merryText.style.fontSize = `${Math.round(FONT_SIZE)}px`;
+        merryText.style.letterSpacing = `${Math.round(FONT_SIZE * 0.01)}px`;
+        [toText, fromText].forEach(
+            p => (p.style.fontSize = `${Math.round(FONT_SIZE * 0.3)}px`)
+        );
+        width = sceneWrap.offsetWidth;
+        height = sceneWrap.offsetHeight;
+        pixiApp.renderer.resize(width, height);
+    }
+
+    createFlakes();
+    animate();
+    setInterval(animateFlake, 80);
+    const masterTL = new timeline().add(dropTL(), 1).add(repeatTL());
+    window.addEventListener("resize", resize);
+    playAudio.addEventListener("click", () => {
+        audio.play();
+        audioButton.classList.remove("paused");
+    });
+    pauseAudio.addEventListener("click", () => {
+        audio.pause();
+        audioButton.classList.add("paused");
+    });
+    replayButton.addEventListener("click", () => masterTL.restart());
+</script>
+
+</html>
